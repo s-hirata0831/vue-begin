@@ -1,20 +1,20 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+new Vue({
+  el: "#app",
+  data: {
+    show: true
+  }
+});
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>Hello KAG!</h1>
+  <div id="app" v-if="show" class="panel">
+  <p>エラーメッセージ表示時に便利かもしれません。</p>
+  <button v-on:click="show = !show">
+    <span>&times;</span> 閉じる
+  </button>
+</div>
 </template>
 
 <style scoped>
