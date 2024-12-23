@@ -15,9 +15,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Change directory to project root # ★ディレクトリ変更★
-        run: cd vue-project
-
       - name: Install dependencies
         run: npm install
 
