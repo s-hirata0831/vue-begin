@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # main ブランチへのプッシュで実行
+    branches: [main]
 
 jobs:
   build-and-deploy:
@@ -10,17 +10,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up Node.js # Node.jsのバージョンを指定
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # 使用するNode.jsのバージョンを指定
+
       - name: Install dependencies
+        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: npm install
 
       - name: Build Vue project
+        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: npm run build
 
-      - name: Copy assets to docs directory # ★非常に重要★
+      - name: Copy assets to docs directory
+        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: cp -r assets docs/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs # docsディレクトリを公開
+          publish_dir: ./docs
