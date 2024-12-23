@@ -10,21 +10,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js # Node.jsのバージョンを指定
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # 使用するNode.jsのバージョンを指定
+          node-version: 18
+
+      - name: Change directory to project root # ★ディレクトリ変更★
+        run: cd vue-project
 
       - name: Install dependencies
-        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: npm install
 
       - name: Build Vue project
-        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: npm run build
 
       - name: Copy assets to docs directory
-        working-directory: ./ # ★作業ディレクトリをルートに変更★
         run: cp -r assets docs/
 
       - name: Deploy to GitHub Pages
