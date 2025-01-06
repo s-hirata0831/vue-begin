@@ -4,7 +4,7 @@ import path from 'path' // path モジュールをインポート
 
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.NODE_ENV === 'production' ? '/vue-begin/' : '/',
+  base: './',
   build: {
     outDir: 'docs',
     rollupOptions: {
