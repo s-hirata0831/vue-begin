@@ -8,7 +8,8 @@ export default{
             changeLang: "Hello, Vue!",
             input: '',
             show: true,
-            sw: true
+            sw: true,
+            writings: ''
         };
     },
     methods: {
@@ -53,6 +54,11 @@ export default{
             </div>
         </transition>
     </div>
+    <h2>文字数カウント</h2>
+    <div id="count">
+        <textarea v-model.trim="writings"></textarea>
+        <p class="count">あと {{ 140 - writings.length }} 文字入力できます</p>
+    </div>
 </template>
 
 <style>
@@ -78,6 +84,15 @@ button span {
 }
 button:hover {
   color: #d44;
+}
+
+textarea {
+  width: 50%;
+  height: 80px;
+  border: 2px #ccc solid;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 /* Animation */
