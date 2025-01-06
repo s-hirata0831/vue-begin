@@ -7,12 +7,18 @@ export default{
             message: "こんにちは！Vue3へようこそ！",
             changeLang: "Hello, Vue!",
             input: '',
-            show: true
+            show: true,
+            sw: true
         };
     },
     methods: {
         japanese: function(){
             this.changeLang = 'こんにちは！びゅーーー！'
+        }
+    },
+    computed: {
+        label: function(){
+            return this.sw ? "閉じる" : "開く";
         }
     }
 };
@@ -33,6 +39,19 @@ export default{
         <button @click="show =! show">
             閉じる
         </button>
+    </div>
+    <h2>スライドパネル</h2>
+    <div id="introduction">
+        <button @click="sw =! sw">
+            {{ label }}
+        </button>
+        <transition name="slide">
+            <div v-if="sw" class="panel">
+                <p>私は舞鶴工業高等専門学校4年電気情報工学科の扁爽馬です。</p>
+                <p>プログラマーズコミュニティ部に所属しており、プログラミングを通してものづくりを日々行なっています。</p>
+                <p>昨年の全国高等専門学校プログラミングコンテストでは課題部門で優秀賞を受賞しました。</p>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -59,5 +78,13 @@ button span {
 }
 button:hover {
   color: #d44;
+}
+
+/* Animation */
+.slide-enter-active, .slide-leave-active {
+  transition: .5s;
+}
+.slide-enter, .slide-leave-to {
+  transform: scaleY(0);
 }
 </style>
