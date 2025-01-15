@@ -1,5 +1,4 @@
 <script>
-
 export default{
     data(){
         return{
@@ -20,7 +19,7 @@ export default{
 </script>
 
 <template>
-    トリガイページ
+    <div class="flex h-screen items-center justify-center bg-gray-200">トリガイページ</div>
     <br />
     <div class="add-box">
         <butoton class="add-button" @click="addBox">
