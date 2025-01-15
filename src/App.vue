@@ -4,7 +4,8 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/anti_virus">AntiVirus</router-link>
+      <router-link to="/anti_virus">AntiVirus</router-link> |
+      <router-link to="/torigai">Torigai</router-link>
     </nav>
     <RouterView />
   </div>
