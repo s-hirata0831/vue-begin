@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="bg-neutral-200 min-h-[100vh]">
+    <div class="mx-8 my-2">
     <h2 class="title">Vue-Begin</h2>
     <nav>
       <router-link to="/">Home</router-link> |
@@ -8,14 +9,14 @@
       <router-link to="/torigai">Torigai</router-link>
     </nav>
     <RouterView />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .title{
-  padding-bottom: 0;
-  margin-bottom: 0;
   color: green;
+  font-size: 30px;
 }
 nav {
   padding-bottom: 20px;
